@@ -11,17 +11,20 @@
 </head>
 <body>
 	<div id="container">
-		<img class="screen" id="start" src="running.jpg">
-		<img class="screen" id="desktop" src="startup.jpg">
+		<img class="screen" id="desktop" draggable src="running.jpg">
+		<img class="screen" id="start" src="startup.jpg">
 	</div>
-	<button id="sPlay">play</button>
-	<audio id="startSound" autoplay>
+	<audio id="startSound">
   		<source src="win95.ogg" type="audio/ogg">
 	</audio>
 	<script type="text/javascript">
-		startSound.play();
+	
+	start.onclick = function(){ startSound.play(); }
+		startSound.onended =  function(){
+			container.removeChild(start);
+		}
 
-		sPlay.onclick = function(){ startSound.play(); }
 	</script>
+
 </body>
 </html>
